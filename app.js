@@ -2,7 +2,7 @@
 
 // console.log(commandLineArgs);
 
-const profileDataArgs = process.argv.slice(2, process.argv.length);
+const profileDataArgs = process.argv.slice(2);
 
 console.log(profileDataArgs);
 
@@ -18,3 +18,5 @@ const printProfileData = profileDataArr => {
     // Is the same as this...
     profileDataArr.forEach(profileItem => console.log(profileItem));
 };
+
+printProfileData(profileDataArgs);
