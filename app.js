@@ -135,7 +135,9 @@ const promptProject = (portfolioData) => {
         }
     ])
     .then(projectData => {
+        console.log(projectData);
         portfolioData.projects.push(projectData);
+        console.log(portfolioData);
         if (projectData.confirmAddProject) { // evaluating if user wants to add more projects or not
             return promptProject(portfolioData); //if true, the condition will evaluate to true and call the function again
         } else {
