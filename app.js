@@ -11,6 +11,9 @@
 // };
 
 // printProfileData(profileDataArgs);
+const fs = require('fs');
+
+const generatePage = require('./src/page-template.js'); //put at the top in files we want to recieve those exported functions
 
 const inquirer = require('inquirer');
 
@@ -144,17 +147,12 @@ const promptProject = (portfolioData) => {
 promptUser()
     .then(promptProject)
     .then(portfolioData => {
-        console.log(portfolioData);
-});
-// const fs = require('fs');
-
-// const generatePage = require('./src/page-template.js'); //put at the top in files we want to recieve those exported functions
-
-// const pageHTML = generatePage(name, github);
+    const pageHTML = generatePage(portfolioData);
 
 
-// fs.writeFile('./index.html', pageHTML, err =>{ //first is the filename, then the data being written (so the html string) and then handles errors
+fs.writeFile('./index.html', pageHTML, err =>{ //first is the filename, then the data being written (so the html string) and then handles errors
 //     if (err) throw err;
 
 //     console.log("portfolio complete! check out index.html to see the output!");
-// });
+});
+});
